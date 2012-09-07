@@ -54,7 +54,7 @@ describe(@"The UIColor class", ^{
             UIColor *testColor = [UIColor colorWithHexString:parameter];
             
             [testColor shouldNotBeNil];
-            
+
             [testColor getRed:&rComponent green:&gComponent blue:&bComponent alpha:&aComponent];
             
             [[theValue(rComponent) should] equal:theValue(0.0f)];
@@ -112,9 +112,9 @@ describe(@"The UIColor class", ^{
             
         });
 
-        it(@"should return green when given the hex string for red (#00ff00)", ^{
+        it(@"should return green when given the hex string for red (#007f00)", ^{
             
-            NSString *parameter = @"00ff00";
+            NSString *parameter = @"007f00";
             UIColor *testColor = [UIColor colorWithHexString:parameter];
             
             [testColor shouldNotBeNil];
@@ -122,7 +122,7 @@ describe(@"The UIColor class", ^{
             [testColor getRed:&rComponent green:&gComponent blue:&bComponent alpha:&aComponent];
             
             [[theValue(rComponent) should] equal:theValue(0.0f)];
-            [[theValue(gComponent) should] equal:theValue(1.0f)];
+            [[theValue(gComponent) should] equal:theValue(0.5f)];
             [[theValue(bComponent) should] equal:theValue(0.0f)];
             [[theValue(aComponent) should] equal:theValue(1.0f)];
             

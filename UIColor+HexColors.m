@@ -12,7 +12,6 @@
 
 +(UIColor *)colorWithHexString:(NSString *)hexString {
 
-    // Test for invalid parameters
     if (!hexString) {
         return nil;
     }
@@ -34,20 +33,27 @@
     NSUInteger rVal = 0;
     NSScanner *rScanner = [NSScanner scannerWithString:rComponent];
     [rScanner scanHexInt:&rVal];
+    float rRetVal = (float)rVal / 254;
     
     NSRange gRange = NSMakeRange(2, 2);
     NSString *gComponent = [hexString substringWithRange:gRange];
     NSUInteger gVal = 0;
     NSScanner *gScanner = [NSScanner scannerWithString:gComponent];
     [gScanner scanHexInt:&gVal];
-    
+    float gRetVal = (float)gVal / 254;
+
     NSRange bRange = NSMakeRange(4, 2);
     NSString *bComponent = [hexString substringWithRange:bRange];
     NSUInteger bVal = 0;
     NSScanner *bScanner = [NSScanner scannerWithString:bComponent];
     [bScanner scanHexInt:&bVal];
+    float bRetVal = (float)bVal / 254;
+
+    NSLog(@"rval = %d",rVal);
+    NSLog(@"gval = %d",gVal);
+    NSLog(@"rval = %d",bVal);
     
-    return [UIColor colorWithRed:rVal green:gVal blue:bVal alpha:1.0f];
+    return [UIColor colorWithRed:rRetVal green:gRetVal blue:bRetVal alpha:1.0f];
 
 }
 
