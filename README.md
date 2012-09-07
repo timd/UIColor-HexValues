@@ -12,6 +12,6 @@ Usage
 * Import `UIColor+HexValues.h` into the class.
 * Use with `UIColor *myColor = [UIColor colorWithHexString:@"aa22cc"];`
 
-The hex string should not include a # character.  The method will check for non-hex values, or values that are not valid colors.
+The hex string should not include a `#` character.  The method will check for non-hex values, or values that are not valid colors.
 
 `ColorTests.m` are Kiwi-based unit tests.
