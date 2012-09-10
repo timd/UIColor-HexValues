@@ -12,10 +12,6 @@
 
 +(UIColor *)colorWithHexString:(NSString *)hexString {
 
-    if (!hexString) {
-        return nil;
-    }
-    
     if ([hexString length] != 6) {
         return nil;
     }
@@ -35,6 +31,7 @@
     [rScanner scanHexInt:&rVal];
     float rRetVal = (float)rVal / 254;
     
+
     NSRange gRange = NSMakeRange(2, 2);
     NSString *gComponent = [hexString substringWithRange:gRange];
     NSUInteger gVal = 0;

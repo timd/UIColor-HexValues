@@ -43,7 +43,7 @@ describe(@"The UIColor class", ^{
         });
         
         it(@"should return nil if given non-hex numeric characters", ^{
-            NSString *parameter = @"abcpqr";
+            NSString *parameter = @"abc&qr";
             UIColor *testColor = [UIColor colorWithHexString:parameter];
             [testColor shouldBeNil];
         });
@@ -127,7 +127,23 @@ describe(@"The UIColor class", ^{
             [[theValue(aComponent) should] equal:theValue(1.0f)];
             
         });
-
+        
+        it(@"should return green when given the hex string for muddy green (#007f00)", ^{
+            
+            NSString *parameter = @"007f00";
+            UIColor *testColor = [UIColor colorWithHexString:parameter];
+            
+            [testColor shouldNotBeNil];
+            
+            [testColor getRed:&rComponent green:&gComponent blue:&bComponent alpha:&aComponent];
+            
+            [[theValue(rComponent) should] equal:theValue(0.0f)];
+            [[theValue(gComponent) should] equal:theValue(0.5f)];
+            [[theValue(bComponent) should] equal:theValue(0.0f)];
+            [[theValue(aComponent) should] equal:theValue(1.0f)];
+            
+        });
+        
     });
     
 });
