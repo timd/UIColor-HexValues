@@ -1,7 +1,7 @@
 # UIColor-HexValues
 =================
 
-Being a small, but exquisitely-formed category on UIColor to create color objects from hex values, and vice versa.
+Being a small, but exquisitely-formed category on `UIColor` to create color objects from hex values, and vice versa.
 
 ## Usage
 =====
