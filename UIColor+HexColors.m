@@ -45,13 +45,37 @@
     NSScanner *bScanner = [NSScanner scannerWithString:bComponent];
     [bScanner scanHexInt:&bVal];
     float bRetVal = (float)bVal / 254;
-
-    NSLog(@"rval = %d",rVal);
-    NSLog(@"gval = %d",gVal);
-    NSLog(@"rval = %d",bVal);
     
     return [UIColor colorWithRed:rRetVal green:gRetVal blue:bRetVal alpha:1.0f];
 
+}
+
++(NSString *)hexValuesFromUIColor:(UIColor *)color {
+    
+    if (!color) {
+        return nil;
+    }
+    
+    if (color == [UIColor whiteColor]) {
+        // Special case, as white doesn't fall into the RGB color space
+        return @"ffffff";
+    }
+ 
+    CGFloat red;
+    CGFloat blue;
+    CGFloat green;
+    CGFloat alpha;
+    
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    int redDec = (int)(red * 255);
+    int greenDec = (int)(green * 255);
+    int blueDec = (int)(blue * 255);
+    
+    NSString *returnString = [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)redDec, (unsigned int)greenDec, (unsigned int)blueDec];
+
+    return returnString;
+    
 }
 
 @end
