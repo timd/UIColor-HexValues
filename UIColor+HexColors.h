@@ -2,7 +2,7 @@
 //  UIColor+HexColors.h
 //  KiwiHarness
 //
-//  Created by Tim on 07/09/2012.
+//  Created by Tim Duckett on 07/09/2012.
 //  Copyright (c) 2012 Charismatic Megafauna Ltd. All rights reserved.
 //
 
@@ -11,5 +11,6 @@
 @interface UIColor (HexColors)
 
 +(UIColor *)colorWithHexString:(NSString *)hexString;
++(NSString *)hexValuesFromUIColor:(UIColor *)color;
 
 @end
